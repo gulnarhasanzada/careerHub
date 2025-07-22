@@ -11,6 +11,7 @@
   "dependencies": {
     "@module-federation/nextjs-mf": "^8.8.33",
     "@career-hub/shared-types": "1.0.0",
+    "@career-hub/shared-utils": "1.0.0",
     "next": "15.4.2",
     "react": "19.1.0",
     "react-dom": "19.1.0"
