@@ -1,4 +1,11 @@
 {
   "version": "independent",
-  "useWorkspaces": true
+  "npmClient": "npm",
+  "useWorkspaces": true,
+  "packages": [
+    "shared/types",
+    "shared/utils", 
+    "micro-frontends/*",
+    "micro-services/*"
+  ]
 }
