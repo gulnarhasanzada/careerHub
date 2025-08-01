@@ -4,15 +4,16 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "nodemon src/index.ts",
-    "build": "tsc",
-    "start": "node dist/index.js"
+    "dev": "nodemon ./src/index.ts",
+    "build": "tsc --build",
+    "start": "node ./dist/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
   "dependencies": {
+    "@career-hub/shared-types": "1.0.0",
+    "@career-hub/shared-utils": "1.0.0",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
