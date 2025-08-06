@@ -19,8 +19,9 @@ export interface RegisterRequest {
 }
 
 export interface ApiResponse<T = any> {
-  success: boolean;
+  success?: boolean;
   data?: T;
   error?: string;
   message?: string;
+  status: string;
 }

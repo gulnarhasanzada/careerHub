@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  shell:
+    build:
+      context: .
+      dockerfile: micro-frontends/shell/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+  user-service:
+    build:
+      context: .
+      dockerfile: micro-services/user-service/Dockerfile
+    ports:
+      - "4001:4001"
+    environment:
+      - NODE_ENV=development
+      - PORT=4001
