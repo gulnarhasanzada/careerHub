@@ -3,9 +3,12 @@ export interface User {
   email: string;
   firstName: string;
   lastName: string;
+  password: string;
   role: UserRole;
   createdAt: Date;
   updatedAt: Date;
+  isEmailVerified?: boolean;
+  lastLoginAt?: Date;
 }
 
 export interface Profile {
