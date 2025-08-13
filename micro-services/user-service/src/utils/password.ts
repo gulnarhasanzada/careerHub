@@ -1,9 +1,10 @@
-import bcrypt, { compare } from "bcryptjs";
+import bcrypt, { compare } from "bcrypt";
 
-const SALT_ROUNDS = process.env.SALT_ROUNDS || 12;
+const SALT_ROUNDS = 12;
 
 export const hashPassword = async (password: string): Promise<string> => {
-    return bcrypt.hash(password, SALT_ROUNDS);
+    const salt = await bcrypt.genSalt(SALT_ROUNDS);
+    return bcrypt.hash(password, salt);
 }
 
 export const comparePasswords = async (password: string, hashedPassword: string): Promise<boolean> => {

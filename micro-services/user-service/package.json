@@ -14,7 +14,7 @@
   "dependencies": {
     "@career-hub/shared-types": "1.0.0",
     "@career-hub/shared-utils": "1.0.0",
-    "bcryptjs": "^3.0.2",
+    "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^5.1.0",
@@ -22,7 +22,7 @@
     "mongoose": "^8.17.1"
   },
   "devDependencies": {
-    "@types/bcryptjs": "^2.4.6",
+    "@types/bcrypt": "^6.0.0",
     "@types/cors": "^2.8.19",
     "@types/dotenv": "^6.1.1",
     "@types/express": "^5.0.3",
