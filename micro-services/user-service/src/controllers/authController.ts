@@ -6,6 +6,13 @@ import { UserService } from "../services/userService";
 import { generateAccessToken, generateRefreshToken } from "../utils/jwt";
 
 export const login = async (req: Request, res: Response) => {
+    if(!req.body){
+        const response: ApiResponse = {
+            success: false,
+            error: 'Request body is missing!'
+        };
+        return res.status(400).json(response);
+    }
     const {email, password}: LoginRequest = req.body;
 
     if(!email || !password){
@@ -72,6 +79,13 @@ export const login = async (req: Request, res: Response) => {
 }
 
 export const register = async (req: Request, res: Response) => {
+    if(!req.body){
+        const response: ApiResponse = {
+            success: false,
+            error: 'Request body is missing!'
+        };
+        return res.status(400).json(response);
+    }
     try {
         const {email, firstName, lastName, password}: RegisterRequest = req.body;
     

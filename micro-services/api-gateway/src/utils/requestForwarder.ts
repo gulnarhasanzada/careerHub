@@ -5,6 +5,7 @@ import axios from 'axios';
 export const forwardRequest = async (req: Request, res: Response, serviceUrl: string, path: string) => {
   try {
     console.log(`🔄 Forwarding ${req.method} ${req.originalUrl} -> ${serviceUrl}${path}`);
+    console.log('Headers:', req.body);
     
     const response = await axios({
       method: req.method,

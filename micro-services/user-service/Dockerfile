@@ -26,7 +26,6 @@ RUN npm install
 
 # Copy source code and env
 COPY micro-services/user-service/src ./src
-COPY micro-services/user-service/.env ./
 
 # Build the service
 RUN npm run build

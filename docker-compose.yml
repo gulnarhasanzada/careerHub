@@ -3,17 +3,24 @@ services:
   shell:
     build:
       context: .
-      dockerfile: micro-frontends/shell/Dockerfile
+      dockerfile: ./micro-frontends/shell/Dockerfile
     ports:
       - "3000:3000"
-    environment:
-      - NODE_ENV=production
   user-service:
     build:
       context: .
-      dockerfile: micro-services/user-service/Dockerfile
+      dockerfile: ./micro-services/user-service/Dockerfile
     ports:
       - "4001:4001"
-    environment:
-      - NODE_ENV=development
-      - PORT=4001
+    env_file:
+      - ./micro-services/user-service/.env
+  api-gateway:
+    build:
+      context: .
+      dockerfile: ./micro-services/api-gateway/Dockerfile
+    ports:
+      - "4000:4000"
+    env_file:
+      - ./micro-services/api-gateway/.env
+    depends_on:
+      - user-service
