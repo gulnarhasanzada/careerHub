@@ -3,18 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "install:all": "npm install",
-    "install:services": "npm run install:shared && npm run install:shell && npm run install:auth && npm run install:user-service",
-    "install:shared": "cd shared/types && npm install && cd ../utils && npm install",
-    "install:shell": "cd micro-frontends/shell && npm install",
-    "install:auth": "cd micro-frontends/auth && npm install", 
-    "install:user-service": "cd micro-services/user-service && npm install",
-    "build:shared": "npm run build --workspace=@career-hub/shared-types && npm run build --workspace=@career-hub/shared-utils",
-    "dev": "concurrently \"npm run dev:shell\" \"npm run dev:auth\" \"npm run dev:user-service\"",
-    "dev:shell": "npm run dev --workspace=micro-frontends/shell",
-    "dev:auth": "npm run dev --workspace=micro-frontends/auth -- --port 3001",
-    "dev:user-service": "npm run dev --workspace=@career-hub/user-service"
-  },
+  "bootstrap": "lerna bootstrap",
+  "build:shared": "lerna run build --scope @career-hub/shared-utils --scope @career-hub/shared-types",
+  "build": "lerna run build --stream",
+  "dev": "npm run build:shared && concurrently \"npm run dev:shell\" \"npm run dev:auth\" \"npm run dev:user-service\""
+},
+
   "workspaces": [
     "micro-frontends/*",
     "micro-services/*",
@@ -43,3 +37,5 @@
   },
   "homepage": "https://github.com/gulnarhasanzada/careerHub#readme"
 }
+
+
