@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import authRoutes from './routes/authRoutes';
 import { connectDB } from './config/db';
+import { errorHandler } from './middleware/errorHandler';
 
 
 
@@ -13,6 +14,7 @@ const PORT = process.env.PORT || 4001;
 app.use(cors());
 app.use(express.json());
 app.use('/api/auth', authRoutes);
+app.use(errorHandler)
 
 const startServer = async ()=>{
     try {
