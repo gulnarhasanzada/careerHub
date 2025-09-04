@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   shell:
     build:
@@ -6,6 +5,7 @@ services:
       dockerfile: ./micro-frontends/shell/Dockerfile
     ports:
       - "3000:3000"
+
   user-service:
     build:
       context: .
@@ -14,6 +14,7 @@ services:
       - "4001:4001"
     env_file:
       - ./micro-services/user-service/.env
+
   api-gateway:
     build:
       context: .
