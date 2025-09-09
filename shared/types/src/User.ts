@@ -9,6 +9,7 @@ export interface User {
   updatedAt: Date;
   isEmailVerified?: boolean;
   lastLoginAt?: Date;
+  refreshToken?: string | null;
 }
 
 export interface Profile {

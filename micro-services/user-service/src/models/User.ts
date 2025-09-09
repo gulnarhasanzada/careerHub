@@ -39,6 +39,10 @@ const UserSchema = new Schema<UserDocument>({
         type: Boolean,
         default: false
     },
+    refreshToken: {
+        type: String,
+        default: null
+    },
     lastLoginAt: {
         type: Date
     }

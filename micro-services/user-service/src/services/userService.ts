@@ -38,4 +38,11 @@ export class UserService {
         const user = await this.findByEmail(email);
         return !!user;
     }
+
+    static async updateRefreshToken(userId: string, refreshToken: string | null): Promise<void> {
+        await UserModel.findByIdAndUpdate(userId, {
+            refreshToken,
+            updatedAt: new Date()
+        });
+    }
 }

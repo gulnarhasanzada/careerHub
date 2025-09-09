@@ -5,7 +5,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'your-super-secret-key-change-in-pr
 const JWT_REFRESH_SECRET = process.env.JWT_REFRESH_SECRET || 'your-refresh-secret-key';
 
 export const generateAccessToken = (payload: Omit<JWTPayload, 'iat' | 'exp'>): string=>{
-    return jwt.sign(payload, JWT_SECRET, { expiresIn: '15m' });
+    return jwt.sign(payload, JWT_SECRET, { expiresIn: '30s' });
 }
 
 export const generateRefreshToken = (userId: string): string=>{
